@@ -2,7 +2,7 @@ import serial
 import os
 
 PORT = "COM3"
-BAUD = 115200
+BAUD = 921600
 CSV_FILE = "data.csv"
 
 if os.path.exists(CSV_FILE):
@@ -25,7 +25,7 @@ with open(CSV_FILE, "w", newline="") as f:
                 print(line[2:])  # print status messages without the #
                 continue
 
-            if line.startswith("ax_g"):
+            if line.startswith("t_ms"):
                 recording = True
                 f.write(line + "\n")
                 f.flush()
